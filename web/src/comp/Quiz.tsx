@@ -9,6 +9,7 @@ import Score from './Score';
 import { arrShuffle, fDownload, fOpen, yyyymmdd } from './_Functions';
 import * as correctIMG from "../img/100/Img100"
 import * as falseIMG from "../img/you_dumb/ImgYouDumb"
+import BlackButton from './ultility/BlackButton';
 interface QuizProps {
 }
 // const correctImg = [require("../img/100/0.png"), require("../img/100/1.png"), require("../img/100/2.png"), require("../img/100/3.png"), require("../img/100/4.png"), require("../img/100/5.png"), require("../img/100/6.png"), require("../img/100/7.png"), require("../img/100/8.png"), require("../img/100/9.png")];
@@ -35,6 +36,10 @@ const Quiz: React.FC<QuizProps> = () => {
     const currentID=React.useRef<number>(0)
     const _random=React.useRef<number>(0)
     const _exported=React.useRef(false);
+    const [countdownToggle,setCountdownToggle]=React.useState(false);
+    const _preCountdown=React.useRef(0)
+    const [countdownDuration,setCountdownDuration]=React.useState(10)
+    const [countdown,setCountdown]=React.useState(false);
     // console.log(JSON.stringify(dt.current))
     const prepareAnswers=()=>{
         quesUpdate.current=dt.current.poll[ID];
@@ -50,6 +55,11 @@ const Quiz: React.FC<QuizProps> = () => {
         needToAnswer.current=points;
         setTotalPoints(totalPoints+points)
         setQues({...quesUpdate.current})
+        startCountdown()
+    }
+    const startCountdown=()=>{
+        setCountdown(true&&countdownToggle)
+        _preCountdown.current=t
     }
     const handleAnswerClick=(selected:boolean,setSelected:React.Dispatch<React.SetStateAction<boolean>>,answer:PQuestionAnswer,id:number)=>{
         if(answer.correct==1) 
@@ -201,14 +211,29 @@ const Quiz: React.FC<QuizProps> = () => {
         }
         setAnswerShown(!answerShown)
     }
-
+    React.useEffect(()=>{
+        if(countdown&&(t-_preCountdown.current>countdownDuration)){
+            if(needToAnswer.current>0)
+                {
+                    wrongQuestionDT.current.push(ques!);
+                    wrongAdded.current=true;
+                    setCountdown(false)
+                    handleSubmit()
+                }
+        }
+            
+    },[t])
+    React.useEffect(()=>{
+        startCountdown()
+    },[countdownToggle])
     return <div className='QuizPage'>
-        <Score loading={loading} ended={ended} answerShown={answerShown} totalPoints={totalPoints} points={points} setAutoTimer={setAutoTimer} autoTimer={autoTimer} swapped={swapped} t={t} setT={setT}/>
+        <Score loading={loading} ended={ended} answerShown={answerShown} totalPoints={totalPoints} points={points} setAutoTimer={setAutoTimer} autoTimer={autoTimer} swapped={swapped} t={t} setT={setT} countdownToggle={countdownToggle} setCountdownToggle={setCountdownToggle} countdownDuration={countdownDuration} setCountdownDuration={setCountdownDuration} _preCountdown={_preCountdown}/>
             {!loading&&<ul className='Quiz'> 
                 {!ended&&
                 (<><li style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
                 <div style={{width:"10em",height:"10em"}}>
-                    <img src={!wrongAdded.current?correctImg[_random.current]:falseImg[_random.current]} style={{fontSize:0,lineHeight:0,opacity:answerShown?100:0}} width="100%" height="100%"/>
+                    <img src={correctImg[_random.current]} style={{fontSize:0,lineHeight:0}} width={!wrongAdded.current&&answerShown?"100%":"0"} height={!wrongAdded.current&&answerShown?"100%":"0"}/>
+                    <img src={falseImg[_random.current]} style={{fontSize:0,lineHeight:0}} width={wrongAdded.current&&answerShown?"100%":"0"} height={wrongAdded.current&&answerShown?"100%":"0"}/>
                 </div>
                 </li> 
                 <li><span>{ques?.q}</span></li>       
@@ -220,6 +245,10 @@ const Quiz: React.FC<QuizProps> = () => {
                 )}
                 <li style={{marginTop:"2em"}}>
                     <BottomNav swapDeck={swapDeck} ended={ended} restart={restart} dtExport={dtExport} swapped={swapped} dtImport={dtImport}/>
+                </li>
+                <li>
+                    <div style={{opacity:countdown?1:0}}><span>{countdownDuration-(t-_preCountdown.current)}</span>
+                    </div>
                 </li>
                 <li style={{marginTop:"2em"}}>
                     <PercentageInter percentage={(ID+1)/dt.current.poll.length} interPackage={(p:number)=>{

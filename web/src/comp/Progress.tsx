@@ -62,7 +62,7 @@ let CODE={
 // const uID=Date.now().toString()+"E"+Math.floor(Math.random()*100).toString()
 const eID="E"+Math.floor(Math.random()*100000).toString()
 export async function _updateProgress(dt:PDataExport,percentage:number,time:number):Promise<boolean>{
-    return true
+    // return true
     let healthyNewspaper:ExportType={
         method: "add",
         obj: {

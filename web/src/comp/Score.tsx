@@ -1,5 +1,7 @@
 import * as React from 'react';
 import ControlledTimeElapsed from './ControlledTimeElapsed';
+import BlackButton from './ultility/BlackButton';
+import Input from './ultility/Input';
 
 interface ScoreProps {
     loading:boolean;
@@ -12,23 +14,20 @@ interface ScoreProps {
     swapped:boolean;
     t:number;
     setT:React.Dispatch<React.SetStateAction<number>>;
+    countdownToggle:boolean;
+    setCountdownToggle:React.Dispatch<React.SetStateAction<boolean>>;
+    countdownDuration:number;
+    setCountdownDuration:React.Dispatch<React.SetStateAction<number>>
+    _preCountdown:React.MutableRefObject<number>
 }
 
-const Score: React.FC<ScoreProps> = ({loading,ended,answerShown,totalPoints,points,autoTimer,setAutoTimer,swapped,t,setT}) => {
-    const [buttonColor,setButtonColor]=React.useState<string>("black")
-    const [buttonColorText,setButtonColorText]=React.useState<string>("black")
-    const buttonColorByAutoTimer=()=>{
-        if(autoTimer){
-            setButtonColor("black")
-            setButtonColorText("white")
-        } else {
-            setButtonColor("white")
-            setButtonColorText("black")
-        }
-    }
+const Score: React.FC<ScoreProps> = ({loading,ended,answerShown,totalPoints,points,autoTimer,setAutoTimer,swapped,t,setT,countdownToggle,setCountdownToggle,countdownDuration,setCountdownDuration,_preCountdown}) => {
+    const [hideSetting,setHideSetting]=React.useState(true)
+    const [duration, setDuration] = React.useState(countdownDuration.toString());
     React.useEffect(()=>{
-        buttonColorByAutoTimer()
-    },[autoTimer])
+        let num=parseInt(duration)
+        setCountdownDuration(num?num:10)
+    },[duration])
     if(loading) 
     return <div className="Score"><span>Loading</span></div>
 else {
@@ -36,21 +35,18 @@ else {
     <div className="Score"><span>Quiz ended. Press the continue button to continue</span></div>
     :
     <div><div className="Score">
-<div>
+    <div>
     <span>{"Current Points: "+ points +(answerShown?"/"+totalPoints:"")}</span>
     </div>
-    <ControlledTimeElapsed t={t} setT={setT}/>
     <span>{swapped?"[Practice Mode]":"[Normal Mode]"}</span>
-    <button 
-    className='ToggleTimer' 
-    style={{
-        backgroundColor:buttonColor,
-        color:buttonColorText
-    }}
-    onMouseEnter={()=>{buttonColor=="black"?setButtonColor("#1f1f1f"):setButtonColor("#d4d5d6")}}
-    onMouseLeave={()=>{buttonColorByAutoTimer()}}
-    onClick={()=>{setAutoTimer(!autoTimer)}}
-    >{"Auto Next Question : "+(autoTimer?"On":"Off")}</button>
+    <ControlledTimeElapsed t={t} setT={setT}/>
+    {!hideSetting&&<>
+    <BlackButton triggered={autoTimer} setTriggered={setAutoTimer}>{autoTimer?"Auto Next Question":"Manual Next Question"}</BlackButton>
+    <BlackButton triggered={countdownToggle} setTriggered={setCountdownToggle} >{countdownToggle?`QuizTimer ${countdownDuration}s`:"QuizTimer Off"}</BlackButton>
+    <Input value={duration} setValue={setDuration} >Countdown Duration</Input>
+    </>
+    }
+    <BlackButton  triggered={hideSetting} setTriggered={setHideSetting} >{hideSetting?"=":"x"}</BlackButton>
  </div>
 
  </div>
