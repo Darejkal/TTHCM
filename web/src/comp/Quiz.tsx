@@ -17,7 +17,7 @@ interface QuizProps {
 const correctImg=Object.values(correctIMG)
 const falseImg=Object.values(falseIMG)
 const Quiz: React.FC<QuizProps> = () => {
-    const dt=React.useRef<PData>({poll:arrShuffle(data.poll),pollID:data.pollID})
+    const dt=React.useRef<PData>({poll:arrShuffle(data.poll),pollID:data.pollID?data.pollID:0})
     const [loading,setLoading]=React.useState(true);
     const [ID,setID]=React.useState(0);
     const [ques,setQues]=React.useState<PQuestion>();
@@ -103,7 +103,7 @@ const Quiz: React.FC<QuizProps> = () => {
         }).filter(val=>val!=undefined)
         if(_poll.length!=0){
         //@ts-ignore
-        _updateProgress({pollID:dt.current.pollID.current.toString(),poll:_poll},p,t)
+        _updateProgress({pollID:dt.current.pollID.toString(),poll:_poll},p,t)
         }
 }
     const resetPoints=()=>{
@@ -196,6 +196,7 @@ const Quiz: React.FC<QuizProps> = () => {
             return;
         }
        prepareAnswers()
+       setEnded(false)
     },[ID])
     React.useEffect(
         ()=>{
@@ -247,7 +248,7 @@ const Quiz: React.FC<QuizProps> = () => {
                     <BottomNav swapDeck={swapDeck} ended={ended} restart={restart} dtExport={dtExport} swapped={swapped} dtImport={dtImport}/>
                 </li>
                 <li>
-                    <div style={{opacity:countdown?1:0}}><span>{countdownDuration-(t-_preCountdown.current)}</span>
+                    <div style={{opacity:countdown?1:0}}><span>{countdownDuration-t+_preCountdown.current}</span>
                     </div>
                 </li>
                 <li style={{marginTop:"2em"}}>

@@ -23,7 +23,7 @@ interface ScoreProps {
 
 const Score: React.FC<ScoreProps> = ({loading,ended,answerShown,totalPoints,points,autoTimer,setAutoTimer,swapped,t,setT,countdownToggle,setCountdownToggle,countdownDuration,setCountdownDuration,_preCountdown}) => {
     const [hideSetting,setHideSetting]=React.useState(true)
-    const [duration, setDuration] = React.useState(countdownDuration.toString());
+    const [duration, setDuration] = React.useState(countdownDuration?countdownDuration.toString():'10');
     React.useEffect(()=>{
         let num=parseInt(duration)
         setCountdownDuration(num?num:10)
