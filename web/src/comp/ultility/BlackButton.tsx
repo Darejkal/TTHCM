@@ -3,12 +3,14 @@ import * as React from "react";
 interface BlackButtonProps {
   triggered?: boolean;
   setTriggered?: React.Dispatch<React.SetStateAction<boolean>>;
+  onClick?:Function
 }
 
 const BlackButton: React.FC<BlackButtonProps> = ({
   triggered,
   setTriggered,
-  children
+  children,
+  onClick
 }) => {
   const [buttonColor, setButtonColor] = React.useState<string>("black");
   const [buttonColorText, setButtonColorText] = React.useState<string>("white");
@@ -43,6 +45,7 @@ const BlackButton: React.FC<BlackButtonProps> = ({
         }}
         onClick={() => {
           setTriggered&&setTriggered(!triggered);
+          onClick&&onClick()
         }}
       >{children}
       </button>

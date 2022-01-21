@@ -182,7 +182,7 @@ const Quiz: React.FC<QuizProps> = () => {
             }))
             dt.current.poll=backupDT.current
             setID(currentID.current)
-            resetPoints()
+            // resetPoints()
             setLoading(false)
         }
         else{
@@ -194,7 +194,7 @@ const Quiz: React.FC<QuizProps> = () => {
             dt.current.poll=arrShuffle(wrongQuestionDT.current)
             currentID.current=ID
             setID(0)
-            resetPoints()
+            // resetPoints()
         }
         setSwapped(x=>!x)
     }
@@ -228,8 +228,11 @@ const Quiz: React.FC<QuizProps> = () => {
         if(countdown&&(t-_preCountdown.current>countdownDuration)){
             if(needToAnswer.current>0)
                 {
-                    wrongQuestionDT.current.push(ques!);
-                    wrongAdded.current=true;
+                    if(!wrongAdded.current)
+                    {
+                        wrongAdded.current=true;
+                        wrongQuestionDT.current.push(ques!);
+                    }
                     setCountdown(false)
                     handleSubmit()
                 }
@@ -284,6 +287,22 @@ const Quiz: React.FC<QuizProps> = () => {
                         </div>
                     })}
                 </li>
+                <li><BlackButton 
+                    triggered={true}
+                    onClick={()=>{
+                    dt.current.poll.sort(function (a,b){
+                        setLoading(true)
+                        function chosen(q:PQuestion) {
+                            return q.a.reduce((pre,cur)=>{
+                                return pre+ Math.abs(cur.chosen)
+                            },0)
+                        }
+                        return chosen(a)-chosen(b)
+                    })
+                    if(ID==0) prepareAnswers()
+                    else setID(0)
+                    setLoading(false)
+                }}>Pioritize least answered question</BlackButton></li>
                 </ul>
             }
         </div>
