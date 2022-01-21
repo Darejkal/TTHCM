@@ -115,3 +115,18 @@ body{
   box-shadow: 0 0.2px #666;
   transform: translateY(2px) ;
 }
+.dataChoice{
+  margin:1vw;
+  border-bottom: 1px solid blue;
+  color:blue;
+  cursor:pointer
+}
+.dataChoice:active{
+  transform: translateY(2px) ;
+  border-bottom: 1px solid black;
+  color:black
+}
+.dataChoice span{
+  font-size: 1vw;
+}
+

@@ -1,5 +1,5 @@
 export let data = {
-  pollID: 1640132339.950137,
+  pollID: 1642676870.7677863,
   poll: [
     {
       id: 1,
@@ -1699,7 +1699,7 @@ export let data = {
     },
     {
       id: 106,
-      q: "Trong tác phẩm “Đạo đức cách mạng” (12/1958), Hồ Chí Minh đã viết:   \n“Đạo đức cách mạng không phải .... Nó do đấu tranh, rèn luyện bền bỉ hằng ngày mà phát triển và củng cố. Cũng như ngọc càng mài càng sáng, vàng càng luyện càng trong”. Điền từ còn thiếu trong đoạn văn trên:  ",
+      q: "Trong tác phẩm “Đạo đức cách mạng” (12/1958), Hồ Chí Minh đã viết:   \n“Đạo đức cách mạng không phải .... Nó do đấu tranh, rèn luyện bền bỉ hằng ngày mà phát triển và củng cố. Cũng như ngọc càng mài càng sáng, vàng càng luyện càng trong”. \nĐiền từ còn thiếu trong đoạn văn trên:  ",
       a: [
         { val: "trên trời sa xuống  ", correct: 1, chosen: 0, id: 0 },
         { val: "tự nhiên mà có", correct: 0, chosen: 0, id: 1 },
@@ -1739,7 +1739,7 @@ export let data = {
     },
     {
       id: 110,
-      q: "Trong tác phẩm “Đạo đức cách mạng” (12/1958), Hồ Chí Minh đã viết:   \n“Đạo đức cách mạng không phải trên trời sa xuống. Nó do đấu tranh, rèn luyện ... hằng ngày mà phát triển và củng cố. Cũng như ngọc càng mài càng sáng, vàng càng luyện càng trong”. Điền từ còn thiếu trong đoạn văn trên:   ",
+      q: "Trong tác phẩm “Đạo đức cách mạng” (12/1958), Hồ Chí Minh đã viết:   \n“Đạo đức cách mạng không phải trên trời sa xuống. Nó do đấu tranh, rèn luyện ... hằng ngày mà phát triển và củng cố. Cũng như ngọc càng mài càng sáng, vàng càng luyện càng trong”. \nĐiền từ còn thiếu trong đoạn văn trên:   ",
       a: [
         { val: "bền bỉ   ", correct: 1, chosen: 0, id: 0 },
         { val: "kiên trì", correct: 0, chosen: 0, id: 1 },
@@ -1759,7 +1759,7 @@ export let data = {
     },
     {
       id: 112,
-      q: "Trong bài “Người cán bộ cách mạng” (3/1955), Hồ Chí Minh đã viết:   \n“Người cán bộ cách mạng phải có đạo đức cách mạng. Phải giữ vững đạo đức cách mạng mới là người cán bộ … chân chính”. Điền từ còn thiếu trong đoạn văn trên: ",
+      q: "Trong bài “Người cán bộ cách mạng” (3/1955), Hồ Chí Minh đã viết:   \n“Người cán bộ cách mạng phải có đạo đức cách mạng. Phải giữ vững đạo đức cách mạng mới là người cán bộ … chân chính”. \nĐiền từ còn thiếu trong đoạn văn trên: ",
       a: [
         { val: "cách mạng   ", correct: 1, chosen: 0, id: 0 },
         { val: "của Đảng", correct: 0, chosen: 0, id: 1 },
@@ -1779,7 +1779,7 @@ export let data = {
     },
     {
       id: 114,
-      q: "Trong “Đạo đức cách mạng”, (12/1958), Hồ Chí Minh đã viết:   \n“Đạo đức cách mạng là hòa mình với quần chúng thành một khối, tin quần chúng, …, lắng nghe ý kiến của quần chúng. Do lời nói và việc làm, đảng viên, đoàn viên và cán bộ làm cho dân tin, dân phục, dân yêu, đoàn kết quần chúng chặt chẽ chung quanh Đảng, …, tuyên truyền và động viên quần chúng hăng hái thực hiện chính sách và nghị quyết của Đảng”. Điền từ còn thiếu trong đoạn văn trên: ",
+      q: "Trong “Đạo đức cách mạng”, (12/1958), Hồ Chí Minh đã viết:   \n“Đạo đức cách mạng là hòa mình với quần chúng thành một khối, tin quần chúng, …, lắng nghe ý kiến của quần chúng. Do lời nói và việc làm, đảng viên, đoàn viên và cán bộ làm cho dân tin, dân phục, dân yêu, đoàn kết quần chúng chặt chẽ chung quanh Đảng, …, tuyên truyền và động viên quần chúng hăng hái thực hiện chính sách và nghị quyết của Đảng”. \nĐiền từ còn thiếu trong đoạn văn trên: ",
       a: [
         { val: "hiểu quần chúng   ", correct: 1, chosen: 0, id: 0 },
         { val: "vì quần chúng", correct: 0, chosen: 0, id: 1 },
@@ -1799,7 +1799,7 @@ export let data = {
     },
     {
       id: 116,
-      q: "Trong “Đạo đức cách mạng”, (12/1958), Hồ Chí Minh đã viết: “Nhưng hiện nay, chủ nghĩa cá nhân … một số đồng chí. Họ tự cho mình cái gì cũng giỏi, họ xa rời quần chúng, không muốn học hỏi quần chúng mà chỉ muốn làm thầy quần chúng”.Điền từ còn thiếu trong đoạn văn trên:   ",
+      q: "Trong “Đạo đức cách mạng”, (12/1958), Hồ Chí Minh đã viết: “Nhưng hiện nay, chủ nghĩa cá nhân … một số đồng chí. Họ tự cho mình cái gì cũng giỏi, họ xa rời quần chúng, không muốn học hỏi quần chúng mà chỉ muốn làm thầy quần chúng”.\nĐiền từ còn thiếu trong đoạn văn trên:   ",
       a: [
         { val: "đang ám ảnh ", correct: 1, chosen: 0, id: 0 },
         { val: "đang tác động", correct: 0, chosen: 0, id: 1 },
@@ -1809,7 +1809,7 @@ export let data = {
     },
     {
       id: 117,
-      q: "Trong “Bài nói chuyện trong buổi bế mạc Hội nghị cán bộ của Đảng lần thứ sáu” (01/1949), Hồ Chí Minh đã nói: “Trước mặt quần chúng, không phải ta cứ viết lên trán chữ “…” mà ta được họ yêu mến”.Điền từ còn thiếu trong đoạn văn trên: ",
+      q: "Trong “Bài nói chuyện trong buổi bế mạc Hội nghị cán bộ của Đảng lần thứ sáu” (01/1949), Hồ Chí Minh đã nói: “Trước mặt quần chúng, không phải ta cứ viết lên trán chữ “…” mà ta được họ yêu mến”.\nĐiền từ còn thiếu trong đoạn văn trên: ",
       a: [
         { val: "“cộng sản” ", correct: 1, chosen: 0, id: 0 },
         { val: "“cách mạng”", correct: 0, chosen: 0, id: 1 },
@@ -1839,7 +1839,7 @@ export let data = {
     },
     {
       id: 120,
-      q: "Trong “Bài nói chuyện trong buổi bế mạc Hội nghị cán bộ của Đảng lần thứ sáu” (01/1949), Hồ Chí Minh đã nói: “Hô hào dân tiết kiệm, mình phải tiết kiệm trước đã. Đồng chí ta phải học lấy bốn đức cách mạng: cần, kiệm, liêm, chính. Muốn làm cách mạng, phải … trước tiên”.Điền từ còn thiếu trong đoạn văn trên: ",
+      q: "Trong “Bài nói chuyện trong buổi bế mạc Hội nghị cán bộ của Đảng lần thứ sáu” (01/1949), Hồ Chí Minh đã nói: “Hô hào dân tiết kiệm, mình phải tiết kiệm trước đã. Đồng chí ta phải học lấy bốn đức cách mạng: cần, kiệm, liêm, chính. Muốn làm cách mạng, phải … trước tiên”.\nĐiền từ còn thiếu trong đoạn văn trên: ",
       a: [
         { val: "cải cách tính nết mình ", correct: 1, chosen: 0, id: 0 },
         { val: "yêu nước mình", correct: 0, chosen: 0, id: 1 },
@@ -1869,7 +1869,7 @@ export let data = {
     },
     {
       id: 123,
-      q: "Trong “Thư gửi các cháu thiếu nhi” (10/1946), Hồ Chí Minh đã viết: “Nay Bác viết mấy chữ, để cảm ơn các cháu và khuyên các cháu:1. Phải siêng học,2. Phải …,3. Phải giữ kỷ luật,4. Phải làm theo đời sống mới5. Phải thương yêu giúp đỡ cha mẹ anh em”. Điền từ còn thiếu trong đoạn văn trên: ",
+      q: "Trong “Thư gửi các cháu thiếu nhi” (10/1946), Hồ Chí Minh đã viết: “Nay Bác viết mấy chữ, để cảm ơn các cháu và khuyên các cháu:1. Phải siêng học,2. Phải …,3. Phải giữ kỷ luật,4. Phải làm theo đời sống mới5. Phải thương yêu giúp đỡ cha mẹ anh em”. \nĐiền từ còn thiếu trong đoạn văn trên: ",
       a: [
         { val: "giữ sạch sẽ   ", correct: 1, chosen: 0, id: 0 },
         { val: "ngoan ngoãn", correct: 0, chosen: 0, id: 1 },
@@ -2074,7 +2074,7 @@ export let data = {
     },
     {
       id: 135,
-      q: "Nói về đạo đức cách mạng, Hồ Chí Minh dạy: “Đạo đức cách mạng không phải trên trời sa xuống. Nó do đấu tranh, rèn luyện bền bỉ hàng ngày mà phát triển và củng cố. Cũng như ngọc càng mài càng sáng, vàng càng luyện càng trong”.Hãy xác định câu nói trên của Người đề cập tới vấn đề gì sau đây?",
+      q: "Nói về đạo đức cách mạng, Hồ Chí Minh dạy: “Đạo đức cách mạng không phải trên trời sa xuống. Nó do đấu tranh, rèn luyện bền bỉ hàng ngày mà phát triển và củng cố. Cũng như ngọc càng mài càng sáng, vàng càng luyện càng trong”.\nHãy xác định câu nói trên của Người đề cập tới vấn đề gì sau đây?",
       a: [
         {
           val: "Nguyên tắc xây dựng đạo đức mới  ",
@@ -2829,8 +2829,8 @@ export let data = {
       a: [
         { val: "Bản án chế độ thực dân Pháp", correct: 0, chosen: 0, id: 0 },
         { val: "Đạo đức cách mạng", correct: 0, chosen: 0, id: 1 },
-        { val: "Đường kách mệnh", correct: 0, chosen: 0, id: 2 },
-        { val: "Thưởng thức chính trị ", correct: 1, chosen: 0, id: 3 },
+        { val: "Đường kách mệnh         ", correct: 1, chosen: 0, id: 2 },
+        { val: "Thưởng thức chính trị", correct: 0, chosen: 0, id: 3 },
       ],
     },
     {
@@ -3147,8 +3147,8 @@ export let data = {
       a: [
         { val: "Mở đường", correct: 0, chosen: 0, id: 0 },
         { val: "Dẫn đường", correct: 0, chosen: 0, id: 1 },
-        { val: "Soi đường", correct: 0, chosen: 0, id: 2 },
-        { val: "Đi trước", correct: 1, chosen: 0, id: 3 },
+        { val: "Soi đường     ", correct: 1, chosen: 0, id: 2 },
+        { val: "Đi trước", correct: 0, chosen: 0, id: 3 },
       ],
     },
     {
@@ -3177,8 +3177,13 @@ export let data = {
       a: [
         { val: "Có tri thức", correct: 0, chosen: 0, id: 0 },
         { val: "Làm cách mạng", correct: 0, chosen: 0, id: 1 },
-        { val: "Làm người", correct: 0, chosen: 0, id: 2 },
-        { val: "Phục vụ nhân dân", correct: 1, chosen: 0, id: 3 },
+        {
+          val: "Làm người                                                ",
+          correct: 1,
+          chosen: 0,
+          id: 2,
+        },
+        { val: "Phục vụ nhân dân", correct: 0, chosen: 0, id: 3 },
       ],
     },
     {
@@ -3187,8 +3192,13 @@ export let data = {
       a: [
         { val: "6/9/1945", correct: 0, chosen: 0, id: 0 },
         { val: "8/9/1945", correct: 0, chosen: 0, id: 1 },
-        { val: "3/9/1945", correct: 0, chosen: 0, id: 2 },
-        { val: "10/9/1945", correct: 1, chosen: 0, id: 3 },
+        {
+          val: "3/9/1945                                               ",
+          correct: 1,
+          chosen: 0,
+          id: 2,
+        },
+        { val: "10/9/1945", correct: 0, chosen: 0, id: 3 },
       ],
     },
     {
@@ -3267,9 +3277,9 @@ export let data = {
       q: "Hồ Chí Minh viết mấy tác phẩm có tên Đạo đức cách mạng?",
       a: [
         { val: "1", correct: 0, chosen: 0, id: 0 },
-        { val: "2", correct: 0, chosen: 0, id: 2 },
-        { val: "3", correct: 0, chosen: 0, id: 4 },
-        { val: "4", correct: 1, chosen: 0, id: 6 },
+        { val: "2                            ", correct: 1, chosen: 0, id: 1 },
+        { val: "3", correct: 0, chosen: 0, id: 2 },
+        { val: "4", correct: 0, chosen: 0, id: 3 },
       ],
     },
     {
@@ -3287,16 +3297,21 @@ export let data = {
       q: "Hồ Chí Minh viết tác phẩm “Cần kiệm liêm chính” vào thời gian nào?",
       a: [
         { val: "7/1949", correct: 0, chosen: 0, id: 0 },
-        { val: "6/1949", correct: 0, chosen: 0, id: 1 },
-        { val: "12/1949", correct: 1, chosen: 0, id: 2 },
+        { val: "6/1949                      ", correct: 1, chosen: 0, id: 1 },
+        { val: "12/1949", correct: 0, chosen: 0, id: 2 },
       ],
     },
     {
       id: 215,
       q: "Tác phẩm “Đạo đức cách mạng” là 1 văn kiện dài. Tác phẩm này Hồ Chí Minh lấy bút danh là gi?",
       a: [
-        { val: "Trần Lực", correct: 0, chosen: 0, id: 0 },
-        { val: "Hồ Chí Minh", correct: 1, chosen: 0, id: 1 },
+        {
+          val: "Trần Lực                                        ",
+          correct: 1,
+          chosen: 0,
+          id: 0,
+        },
+        { val: "Hồ Chí Minh", correct: 0, chosen: 0, id: 1 },
         { val: "Nguyễn Ái Quốc", correct: 0, chosen: 0, id: 2 },
         { val: "L", correct: 0, chosen: 0, id: 4 },
       ],
@@ -3340,9 +3355,14 @@ export let data = {
       id: 218,
       q: "Trong “Mục đọc sách”, Hồ Chí Minh đã vạch ra chương trình xây dựng văn hóa gồm mấy điểm?",
       a: [
-        { val: "3", correct: 0, chosen: 0, id: 0 },
-        { val: "5", correct: 0, chosen: 0, id: 2 },
-        { val: "7", correct: 1, chosen: 0, id: 4 },
+        {
+          val: "3                                             ",
+          correct: 1,
+          chosen: 0,
+          id: 0,
+        },
+        { val: "5", correct: 0, chosen: 0, id: 1 },
+        { val: "7", correct: 0, chosen: 0, id: 2 },
       ],
     },
     {
@@ -5407,3 +5427,4 @@ export let data = {
     },
   ],
 };
+export default data;

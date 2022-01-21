@@ -1,10 +1,12 @@
 import * as React from 'react';
 import '../App.css';
-import { data } from '../assets/out';
+import {default as tthcm} from '../assets/tthcm';
+import {default as qsc} from '../assets/qsc';
+import {default as dlan} from '../assets/dlan';
 import BottomNav from './BottomNav';
 import { Choice } from './Choice';
 import PercentageBar from './PercentageBar';
-import {  PData, PQuestion, PQuestionAnswer, _updateProgress } from './Progress';
+import {  originalPoll, PData, PQuestion, PQuestionAnswer, _updateProgress } from './Progress';
 import Score from './Score';
 import { arrShuffle, fDownload, fOpen, yyyymmdd } from './_Functions';
 import * as correctIMG from "../img/100/Img100"
@@ -14,10 +16,14 @@ interface QuizProps {
 }
 // const correctImg = [require("../img/100/0.png"), require("../img/100/1.png"), require("../img/100/2.png"), require("../img/100/3.png"), require("../img/100/4.png"), require("../img/100/5.png"), require("../img/100/6.png"), require("../img/100/7.png"), require("../img/100/8.png"), require("../img/100/9.png")];
 // const falseImg = [require("../img/you_dumb/0.png"), require("../img/you_dumb/1.png"), require("../img/you_dumb/2.png"), require("../img/you_dumb/3.png"), require("../img/you_dumb/4.png"), require("../img/you_dumb/5.png"), require("../img/you_dumb/6.png"), require("../img/you_dumb/7.png"), require("../img/you_dumb/8.png"), require("../img/you_dumb/9.png")];
+let defaultData=tthcm
+let defaultName='tthcm'
+let _choices={tthcm:tthcm,qsc:qsc,dlan:dlan}
 const correctImg=Object.values(correctIMG)
 const falseImg=Object.values(falseIMG)
 const Quiz: React.FC<QuizProps> = () => {
-    const dt=React.useRef<PData>({poll:arrShuffle(data.poll),pollID:data.pollID?data.pollID:0})
+    const [dtName,setDtName]=React.useState(defaultName)
+    const dt=React.useRef<PData>({poll:arrShuffle(defaultData.poll),pollID:defaultData.pollID?defaultData.pollID:0})
     const [loading,setLoading]=React.useState(true);
     const [ID,setID]=React.useState(0);
     const [ques,setQues]=React.useState<PQuestion>();
@@ -110,12 +116,18 @@ const Quiz: React.FC<QuizProps> = () => {
         setPoints(0);
         setTotalPoints(0);
     }
-    const restart =(index=0)=>{
+    const restart =(index=0,newDataset:undefined|originalPoll=undefined,newDtName:undefined|string=undefined)=>{
+        if(newDataset) dt.current={'poll':arrShuffle(newDataset.poll),'pollID':newDataset.pollID?newDataset.pollID:0}
         dt.current.poll=index==0?arrShuffle(dt.current.poll):dt.current.poll
+        if(newDtName) setDtName(newDtName)
         setID(index)
         setEnded(false);
         setLoading(false);
         prepareAnswers()
+        setTotalPoints(0)
+        setPoints(0)
+        wrongQuestionDT.current=[]
+        backupDT.current=[]
     }
     const dtExport =()=>{
         fDownload(JSON.stringify({...dt.current,now:{wrongQuestionDT:wrongQuestionDT.current},id:ID}),"Quiz_export_"+yyyymmdd(new Date()),"application/json")
@@ -232,7 +244,7 @@ const Quiz: React.FC<QuizProps> = () => {
             {!loading&&<ul className='Quiz'> 
                 {!ended&&
                 (<><li style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-                <div style={{width:"10em",height:"10em"}}>
+                <div style={{width:"7em",height:"7em"}}>
                     <img src={correctImg[_random.current]} style={{fontSize:0,lineHeight:0}} width={!wrongAdded.current&&answerShown?"100%":"0"} height={!wrongAdded.current&&answerShown?"100%":"0"}/>
                     <img src={falseImg[_random.current]} style={{fontSize:0,lineHeight:0}} width={wrongAdded.current&&answerShown?"100%":"0"} height={wrongAdded.current&&answerShown?"100%":"0"}/>
                 </div>
@@ -257,6 +269,20 @@ const Quiz: React.FC<QuizProps> = () => {
                         _exported.current=false;
                     }
                         } />
+                </li>
+                <li>
+                    <div><span>{"Current Set: "+dtName}</span></div>
+                </li>
+                <li style={{display:"flex",flexDirection:"row",justifyContent:"center"}}>
+                    {Object.keys(_choices).map((key)=>{
+                        return <div className='dataChoice'
+                        onClick={()=>{
+                            if(key==dtName) return
+                            /* @ts-ignore */
+                              restart(0,_choices[key],key)
+                          }} ><span>{'<'+key.toUpperCase()+'>'}</span>
+                        </div>
+                    })}
                 </li>
                 </ul>
             }

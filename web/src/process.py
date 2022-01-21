@@ -34,7 +34,8 @@ for i in r.finditer(txt):
             l.append({"val":ans.replace("dann",""),"correct":1,"chosen":0,"id":i})
     data.append({"id":int(x["id"]),"q":re.sub(r"\n\s+","",x["question"]),"a":l})
     backup.write(str(data[-1])+"\n")
-outer.write("export let data = {pollID: "+str(time.time())+",poll: "+str(data)+"}")
+outer.write("export let data = {pollID: "+str(time.time())+",poll: "+str(data)+"};")
+outer.write("export default data;")
 outer.close()
 
 

@@ -26,6 +26,21 @@ export type PData={
 //         }[]
 //     }[];
 // }
+
+
+export type originalPoll={
+    pollID: number;
+    poll: {
+        id: number;
+        q: string;
+        a: {
+            val: string;
+            correct: number;
+            chosen: number;
+            id: number;
+        }[];
+    }[];
+}
 export type PDataExport={
     pollID:string;
     poll:
