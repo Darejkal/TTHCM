@@ -258,12 +258,12 @@ const Quiz: React.FC<QuizProps> = () => {
                 </li>
                 </>
                 )}
-                <li style={{marginTop:"2em"}}>
-                    <BottomNav swapDeck={swapDeck} ended={ended} restart={restart} dtExport={dtExport} swapped={swapped} dtImport={dtImport}/>
-                </li>
                 <li>
                     <div style={{opacity:countdown?1:0}}><span>{countdownDuration-t+_preCountdown.current}</span>
                     </div>
+                </li>
+                <li style={{marginTop:"2em"}}>
+                    <BottomNav swapDeck={swapDeck} ended={ended} restart={restart} dtExport={dtExport} swapped={swapped} dtImport={dtImport}/>
                 </li>
                 <li style={{marginTop:"2em"}}>
                     <PercentageInter percentage={(ID+1)/dt.current.poll.length} interPackage={(p:number)=>{
