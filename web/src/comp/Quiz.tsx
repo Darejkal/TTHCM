@@ -27,7 +27,6 @@ const Quiz: React.FC<QuizProps> = () => {
     const [loading,setLoading]=React.useState(true);
     const [ID,setID]=React.useState(0);
     const [ques,setQues]=React.useState<PQuestion>();
-    const quesUpdate=React.useRef<PQuestion>();
     const [ended,setEnded]=React.useState(false);
     const [points,setPoints]=React.useState(0)
     const [t,setT]=React.useState(0)
@@ -48,19 +47,18 @@ const Quiz: React.FC<QuizProps> = () => {
     const [countdown,setCountdown]=React.useState(false);
     // console.log(JSON.stringify(dt.current))
     const prepareAnswers=()=>{
-        quesUpdate.current=dt.current.poll[ID];
-        if(!quesUpdate.current) {
+        if(!dt.current.poll[ID]) {
             setEnded(true)
             return
         }
-        quesUpdate.current.a=arrShuffle(quesUpdate.current.a)
+        dt.current.poll[ID].a=arrShuffle(dt.current.poll[ID].a)
         let points=0;
-        for(var x of quesUpdate.current.a){
+        for(var x of dt.current.poll[ID].a){
             if(x.correct) points++
         }
         needToAnswer.current=points;
         setTotalPoints(totalPoints+points)
-        setQues({...quesUpdate.current})
+        setQues({...dt.current.poll[ID]})
         startCountdown()
     }
     const startCountdown=()=>{
@@ -71,11 +69,11 @@ const Quiz: React.FC<QuizProps> = () => {
         if(answer.correct==1) 
         {
             setPoints(points+1);
-            quesUpdate.current!.a[id].chosen++
+            answer.chosen++
         }
         else {
             setPoints(points-1)
-            quesUpdate.current!.a[id].chosen--
+            answer.chosen--
             if(!wrongAdded.current)
                 {
                     wrongAdded.current=true;
@@ -253,7 +251,7 @@ const Quiz: React.FC<QuizProps> = () => {
                 </div>
                 </li> 
                 <li><span>{ques?.q}</span></li>       
-                {ques?.a.map((answer,order)=>(<Choice answer={answer} key={answer.id} id={order} answerShown={answerShown} quesUpdate={quesUpdate}  handleAnswerClick={handleAnswerClick}/>))}
+                {ques?.a.map((answer,order)=>(<Choice answer={answer} key={answer.id} id={order} answerShown={answerShown}  handleAnswerClick={handleAnswerClick}/>))}
                 <li>
             {answerShown&&!autoTimer?<button className="SubmitButton" onClick={handleSubmit}>Continue</button>:undefined}
                 </li>
@@ -278,7 +276,7 @@ const Quiz: React.FC<QuizProps> = () => {
                 </li>
                 <li style={{display:"flex",flexDirection:"row",justifyContent:"center"}}>
                     {Object.keys(_choices).map((key)=>{
-                        return <div className='dataChoice'
+                        return <div className='dataChoice' key={key}
                         onClick={()=>{
                             if(key==dtName) return
                             /* @ts-ignore */

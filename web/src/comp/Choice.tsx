@@ -4,12 +4,11 @@ import { PQuestion, PQuestionAnswer } from "./Progress";
 export interface ChoiceProps{
     answer: PQuestionAnswer;
     answerShown:boolean;
-    quesUpdate:React.MutableRefObject<PQuestion | undefined>;
     id:number;
     handleAnswerClick:Function
 }
 
-export const Choice:React.FC<ChoiceProps>=({answer,answerShown,quesUpdate,handleAnswerClick,id})=>{
+export const Choice:React.FC<ChoiceProps>=({answer,answerShown,handleAnswerClick,id})=>{
     const [selected,setSelected]=React.useState(false);
     const [buttonColor,setButtonColor]=React.useState("blue");
     const setAnswerButtonColor=()=>{
@@ -41,6 +40,6 @@ export const Choice:React.FC<ChoiceProps>=({answer,answerShown,quesUpdate,handle
         }}>
         {answer.val}
     </button>
-    {selected?<span>{quesUpdate.current!.a[id].chosen}</span>:undefined}
+    {selected?<span>{answer.chosen}</span>:undefined}
     </li>
 }
