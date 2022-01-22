@@ -17,13 +17,14 @@ interface QuizProps {
 // const correctImg = [require("../img/100/0.png"), require("../img/100/1.png"), require("../img/100/2.png"), require("../img/100/3.png"), require("../img/100/4.png"), require("../img/100/5.png"), require("../img/100/6.png"), require("../img/100/7.png"), require("../img/100/8.png"), require("../img/100/9.png")];
 // const falseImg = [require("../img/you_dumb/0.png"), require("../img/you_dumb/1.png"), require("../img/you_dumb/2.png"), require("../img/you_dumb/3.png"), require("../img/you_dumb/4.png"), require("../img/you_dumb/5.png"), require("../img/you_dumb/6.png"), require("../img/you_dumb/7.png"), require("../img/you_dumb/8.png"), require("../img/you_dumb/9.png")];
 let defaultData=tthcm
+let defaultPoll={poll:arrShuffle(defaultData.poll),pollID:defaultData.pollID?defaultData.pollID:0}
 let defaultName='tthcm'
 let _choices={tthcm:tthcm,qsc:qsc,dlan:dlan}
 const correctImg=Object.values(correctIMG)
 const falseImg=Object.values(falseIMG)
 const Quiz: React.FC<QuizProps> = () => {
     const [dtName,setDtName]=React.useState(defaultName)
-    const dt=React.useRef<PData>({poll:arrShuffle(defaultData.poll),pollID:defaultData.pollID?defaultData.pollID:0})
+    const dt=React.useRef<PData>(defaultPoll)
     const [loading,setLoading]=React.useState(true);
     const [ID,setID]=React.useState(0);
     const [ques,setQues]=React.useState<PQuestion>();
