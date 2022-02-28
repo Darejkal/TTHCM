@@ -66,7 +66,6 @@ export type ExportType ={
         t:number
     }
 }
-let url="https://dmlggswkb6.execute-api.ap-southeast-1.amazonaws.com/simplebeta/simple/"
 let CODE={
     SUCCESS:"00001",
     FAILED:"00002",
@@ -77,48 +76,8 @@ let CODE={
 // const uID=Date.now().toString()+"E"+Math.floor(Math.random()*100).toString()
 const eID="E"+Math.floor(Math.random()*100000).toString()
 export async function _updateProgress(dt:PDataExport,percentage:number,time:number):Promise<boolean>{
-    // return true
-    let healthyNewspaper:ExportType={
-        method: "add",
-        obj: {
-            userID:Date.now().toString()+eID,
-            poll:dt,
-            t:time,
-            p:percentage,
-        },
-    }
-    return fetch(url,
-        {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': "application/json",
-                'Access-Control-Allow-Origin': 'https://objective-mestorf-575f14.netlify.app'
-            },
-            body: JSON.stringify(healthyNewspaper)
-        }).then(
-           async (response)=>{
-            if (!response.ok) { throw "UnknowError"}
-            let preanswer = await response.json()
-            let answer;
-            if (typeof preanswer.body === "string")
-                answer = await JSON.parse(preanswer.body);
-            else {
-                answer = await preanswer.body;
-            }
-            switch (answer?.internalStatus) {
-                case CODE.SUCCESS:
-                    return true;
-                case undefined:
-                   throw(CODE.OVERLOAD)
-                default:
-                    throw answer.internalStatus;
-            }
-}
-    ).catch((e) => {
-            console.log("ERROR: "+e)
-            return false;
-        });
+    //Used to use for updating progress
+    return true
 }
 
 

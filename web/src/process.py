@@ -4,7 +4,7 @@ import time
 fileIn=input("Enter dataSet name:")
 txt=open(f"./assets/{fileIn}.txt","r",encoding='utf-8').read()
 outer=open(f"./assets/{fileIn}.tsx","w",encoding='utf-8')
-# backup=open("./assets/backup.txt","w",encoding='utf-8')
+backup=open("./assets/backup.txt","w",encoding='utf-8')
 #identify question with the answers
 rp1=r"Câu( )*(?P<id>\d*)( )*(:|\.)( )*(?P<question>([^\n]*)((?:(?!(\n|dann| )*(a|A|e|E|\d)(dann| )*(\.|,|\)|:)))\n?([^\n]*))*)(?P<value>(\n(?:(?!( )*Câu( )*(\d)*( )*(:|\.)( )*)).*)*)"
 #cut the answers
@@ -34,7 +34,7 @@ for i in r.finditer(txt):
         else:
             l.append({"val":ans.replace("dann",""),"correct":1,"chosen":0,"id":i})
     data.append({"id":int(x["id"]),"q":re.sub(r"\n\s+","",x["question"]),"a":l})
-    # backup.write(str(data[-1])+"\n")
+    backup.write(str(data[-1])+"\n")
 outer.write("export let data = {pollID: "+str(time.time())+",poll: "+str(data)+"};")
 outer.write("export default data;")
 outer.close()
